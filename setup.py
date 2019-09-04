@@ -10,7 +10,7 @@ if sys.version_info <= (2, 6):
 
 setup(
     name="envplus",
-    version="0.0.1",
+    version="0.0.2",
     description="Combine your virtualenvs.",
     long_description="",
     classifiers=[
@@ -27,7 +27,7 @@ setup(
     author_email="jsvine@gmail.com",
     url="http://github.com/jsvine/envplus/",
     license="MIT",
-    packages=find_packages(exclude=["test",]),
+    packages=find_packages(exclude=["test"]),
     namespace_packages=[],
     include_package_data=False,
     zip_safe=False,
