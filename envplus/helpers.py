@@ -1,7 +1,7 @@
 import os
+
 from glob import glob
-try: from collections import OrderedDict
-except: from ordereddict import OrderedDict
+
 
 def get_site_packages_dir(envname):
     sections = [

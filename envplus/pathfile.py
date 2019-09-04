@@ -1,9 +1,16 @@
 import os
 import re
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict
+
 from envplus.env import Env
-from envplus.helpers import OrderedDict, get_site_packages_dir
+from envplus.helpers import get_site_packages_dir
 
 linebreak_pattern = re.compile(r"[\n\r]")
+
 
 class PathFile(object):
     def __init__(self, filepath):
