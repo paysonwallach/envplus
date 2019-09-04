@@ -13,5 +13,5 @@ def get_site_packages_dir(envname):
     ]
     joined = os.path.join(*sections)
     matching = glob(joined)
-    return matching[0] if len(matching) else None
 
+    return matching[0] if len(matching) else None

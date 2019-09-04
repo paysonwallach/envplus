@@ -9,6 +9,7 @@ class Env(object):
         split = path.split("/")
         name = split[4]
         paused = bool(re.match(pause_pattern, line))
+
         return cls(name, path, paused)
 
     def __init__(self, name, path, paused=False):
