@@ -7,7 +7,7 @@ except ImportError:
     from ordereddict import OrderedDict
 
 from venn.env import Env
-from venn.helpers import get_site_packages_dir
+from venn.utils import get_site_packages_dir
 
 linebreak_pattern = re.compile(r"[\n\r]")
 
