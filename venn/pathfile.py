@@ -6,8 +6,8 @@ try:
 except ImportError:
     from ordereddict import OrderedDict
 
-from envplus.env import Env
-from envplus.helpers import get_site_packages_dir
+from venn.env import Env
+from venn.helpers import get_site_packages_dir
 
 linebreak_pattern = re.compile(r"[\n\r]")
 
