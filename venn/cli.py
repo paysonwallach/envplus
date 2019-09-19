@@ -12,10 +12,15 @@ import venn.pathfile
 import venn.utils
 
 if "VIRTUAL_ENV" not in os.environ:
-    text = "$VIRTUAL_ENV missing. It seems you're not currently in an active virtual environment."
-    styled = "<error>%s</>" % text
+    console = cleo.io.ConsoleIO()
+    text = (
+        "$VIRTUAL_ENV missing. It seems you're not currently in an active "
+        "virtual environment."
+    )
+    styled_text = "<{0}>{1}</{0}>".format("error", text)
 
-    cleo.io.ConsoleIO.write_line(styled, None)
+    console.error_line(styled_text)
+
     exit(1)
 
 
