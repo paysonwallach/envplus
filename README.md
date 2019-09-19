@@ -1,16 +1,57 @@
-# Venn
+<div align="center">
+  <h1>Venn</h1>
+  <img width=400px src=https://raw.githubusercontent.com/paysonwallach/venn/master/resources/venn.png>
+  <br>
+  <p>Mix and match virtual environments</p>
+  <a href=https://github.com/paysonwallach/venn/release/latest>
+    <img src=https://img.shields.io/github/v/release/paysonwallach/venn?style=flat-square>
+  </a>
+  <a href=https://github.com/paysonwallach/venn/blob/master/LICENSE>
+    <img src=https://img.shields.io/github/license/paysonwallach/venn?style=flat-square>
+  </a>
+  <a href=https://buymeacoffee.com/paysonwallach>
+    <img src=https://img.shields.io/badge/donate-Buy%20me%20a%20coffe-yellow?style=flat-square>
+  </a>
+  <br>
+  <br>
+  <br>
+</div>
 
-Work in multiple [virtual environments](http://www.virtualenv.org/en/latest/virtualenv.html) simultaneously with ease.
+Venn lets you work in multiple [virtual environments](http://www.virtualenv.org/en/latest/virtualenv.html) simultaneously with ease.
 
 A fork of [envplus](https://github.com/tpict/envplus).
 
+## Installation
+
+### From source using [Poetry](https://github.com/sdispater/poetry)
+
+__Note:__ It is recommended to build `venn` in a virtual environment due to dependency version requirements.
+
+From the root of the repository, install the necessary dependencies via `poetry`:
+
+```sh
+poetry install
+```
+
+Then, build the wheel:
+
+```sh
+poetry build
+```
+
+Finally, outside of your virtual environment, install the wheel using `pip`:
+
+```sh
+pip install dist/venn-<version>-py3-none-any.whl
+```
+
 ## How It Works
 
-`venn` takes advantage of [Python's .pth file convention](https://docs.python.org/2/library/site.html). It creates (and manipulates) a special file, `_venn.pth`, in the `site-packages` directory of your current virtualenv.
+`venn` takes advantage of Python's [.pth file convention](https://docs.python.org/2/library/site.html). It creates (and manipulates) a special file, `_venn.pth`, in the `site-packages` directory of your current virtualenv.
 
 ## Walkthrough
 
-If you're like me, a lot of your projects involve fetching and parsing web pages. So let's build a virtual environment that contains a handy trio of packages for this task.
+Many data science-related workflows involve fetching and parsing web pages, so let's build a virtual environment that contains a handy trio of packages for this task.
 
 ```sh
 mkvirtualenv scraping
