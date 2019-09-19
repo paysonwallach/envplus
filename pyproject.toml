@@ -1,14 +1,10 @@
 [tool.poetry]
 name = "venn"
-version = "0.2.0"
+version = "0.1.0"
 description = "Work in multiple virtual environments simultaneously with ease."
 authors = ["Payson Wallach <paysonwallach@icloud.com>"]
-license = "ISC"
+license = "MIT"
 readme = "README.md"
-classifiers = [
-    "Intended Audience :: Developers",
-    "Operating System :: OS Independent",
-]
 
 [tool.poetry.dependencies]
 python = "^3.4"
