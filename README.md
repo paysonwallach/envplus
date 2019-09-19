@@ -1,32 +1,16 @@
-# envplus
+# Venn
 
-Combine your [Python virtualenvs](http://www.virtualenv.org/en/latest/virtualenv.html) into unlimited configurations.
+Work in multiple [virtual environments](http://www.virtualenv.org/en/latest/virtualenv.html) simultaneously with ease.
 
-Developed at BuzzFeed.
-
-## Why Combine Virtualenvs?
-
-Most of my projects are modular in nature. Yours probably are too. The large bulk of my projects involve some combination of:
-
-- Web-scraping and data-fetching
-- Data analysis
-- Web development
-
-For each of these tasks, [I've found a set of Python libraries](https://github.com/jsvine/virtualenv-recipes/) that fit my needs well. Rather than download and install SciPy for the nth time, wouldn't it be nice just to build on top of already-installed versions? Enter `envplus`.
+A fork of [envplus](https://github.com/tpict/envplus).
 
 ## How It Works
 
-`envplus` takes advantage of [Python's .pth file convention](https://docs.python.org/2/library/site.html). It creates (and manipulates) a special file, `_envplus.pth`, in the `site-packages` directory of your current virtualenv.
-
-## Installation
-
-```sh
-pip install envplus
-```
+`venn` takes advantage of [Python's .pth file convention](https://docs.python.org/2/library/site.html). It creates (and manipulates) a special file, `_venn.pth`, in the `site-packages` directory of your current virtualenv.
 
 ## Walkthrough
 
-If you're like me, a lot of your projects involve fetching and parsing web pages. So let's build a virtualenv that contains a handy trio of packages for this task.
+If you're like me, a lot of your projects involve fetching and parsing web pages. So let's build a virtual environment that contains a handy trio of packages for this task.
 
 ```sh
 mkvirtualenv scraping
@@ -46,71 +30,71 @@ Now let's say you're working on a project to scrape cat GIFs from BuzzFeed and s
 
 ```sh
 mkvirtualenv buzzcats
-envplus add scraping dbstorage
+venn add scraping dbstorage
 ```
 
-Now you can use `requests`, `lxml`, `cssselect`, and `dataset` in your `buzzcats` virtualenv. The actions you take in the `buzzcats` virtualenv will not harm or alter your other virtualenvs. (Even if you run `pip uninstall`.) And upgrades to `scraping` and other `envplus add`'ed virtualenvs will become immediately available to `buzzcats`.
+Now you can use `requests`, `lxml`, `cssselect`, and `dataset` in your `buzzcats` virtualenv. The actions you take in the `buzzcats` virtualenv will not harm or alter your other virtualenvs. (Even if you run `pip uninstall`.) And upgrades to `scraping` and other `venn add`'ed virtualenvs will become immediately available to `buzzcats`.
 
 
 ## Usage
 
-To use `envplus`, [`virtualenvwrapper`](http://virtualenvwrapper.readthedocs.org/en/latest/) must be installed and __your target virtualenv must be currenlty activated__.
+To use `venn`, [`virtualenvwrapper`](http://virtualenvwrapper.readthedocs.org/en/latest/) must be installed and __your target virtual environment must be currenlty activated__.
 
 ---
 
-### envplus add [envs]
+### venn add [envs]
 
 Make another virtualenv's packages available to your current virtualenv. Accepts multiple, space-separated virtualenv names.
 
 ```sh
-envplus add scraping dbstorage
+venn add scraping dbstorage
 ```
 
 ---
 
-### envplus rm [envs]
+### venn remove [envs]
 
 Remove a previously added virtualenv from your current virtualenv. Accepts multiple, space-separated virtualenv names.
 
 ```sh
-envplus rm scraping dbstorage
+venn remove scraping dbstorage
 ```
 
 ---
 
-### envplus pause [envs]
+### venn pause [envs]
 
-"Pauses" previously added virtualenvs, so that they remain in `_envplus.pth` (as commented lines) but do not effect the current virtualenv. If virtualenv names are provided, only those are paused. Otherwise, all previously added virtualenvs are paused.
+"Pauses" previously added virtualenvs, so that they remain in `_venn.pth` (as commented lines) but do not effect the current virtualenv. If virtualenv names are provided, only those are paused. Otherwise, all previously added virtualenvs are paused.
 
 ```sh
 # To pause all
-envplus pause
+venn pause
 # To pause just one
-envplus pause dbstorage
+venn pause dbstorage
 ```
 
 ---
 
-### envplus resume [envs]
+### venn resume [envs]
 
 Un-pauses previously added virtualenvs. If virtualenv names are provided, only those are resumed. Otherwise, all previously added virtualenvs are resumed.
 
 ```sh
 # To resume all
-envplus resume
+venn resume
 # To resume just one
-envplus resume dbstorage
+venn resume dbstorage
 ```
 
 ---
 
-### envplus ls [-p] [-a]
+### venn list [-p] [-a]
 
 List added virtualenvs. By default, lists only *non-paused* additions. `-p` will list only *paused* additions, and `-a` will list *all* additions.
 
 ---
 
-### envplus run [command]
+### venn run [command]
 
 Temporarily adds your virtualenvs' `bin`-paths to your current `PATH` before running `command`. Lets you use other virtualenvs' command-line programs.
 
@@ -121,40 +105,40 @@ pip install csvkit
 
 # Create newenv and add csvtest
 mkvirtualenv newenv
-envplus add csvtest
+venn add csvtest
 
 # While in newenv, run csvkit's csvcut command-line utility
-echo "a,b,c" | envplus run csvcut -c 2
+echo "a,b,c" | venn run csvcut -c 2
 ```
 
 ---
 
-### envplus path
+### venn path
 
-Print the path of the active virtualenv's `_envplus.pth` file.
+Print the path of the active virtualenv's `_venn.pth` file.
 
 ```sh
-envplus path
+venn path
 ```
 
 ---
 
-### envplus cat
+### venn describe
 
-Print the contents of the active virtualenv's `_envplus.pth` file.
+Print the contents of the active virtualenv's `_venn.pth` file.
 
 ```sh
-envplus cat
+venn describe
 ```
 
 ---
 
-### envplus edit
+### venn edit
 
-Open the active virtualenv's `_envplus.pth` file in your default editor. You probably shouldn't do this. Mostly for debugging purposes.
+Open the active virtualenv's `_venn.pth` file in your default editor. You probably shouldn't do this. Mostly for debugging purposes.
 
 ```sh
-envplus edit
+venn edit
 ```
 
 ## Todos
