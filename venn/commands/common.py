@@ -1,3 +1,11 @@
+#
+# Venn
+#
+# Copyright (c) 2019 Payson Wallach
+#
+# Released under the terms of the Hippocratic License
+# (https://firstdonoharm.dev/version/1/1/license.html)
+#
 
 import os
 import subprocess
