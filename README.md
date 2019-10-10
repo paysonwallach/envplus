@@ -4,10 +4,10 @@
   <br>
   <p>Mix and match virtual environments</p>
   <a href=https://github.com/paysonwallach/venn/release/latest>
-    <img src=https://img.shields.io/github/v/release/paysonwallach/venn?style=flat-square>
+    <img src=https://img.shields.io/badge/release-v0.1.0-blue?style=flat-square>
   </a>
   <a href=https://github.com/paysonwallach/venn/blob/master/LICENSE>
-    <img src=https://img.shields.io/github/license/paysonwallach/venn?style=flat-square>
+    <img src=https://img.shields.io/badge/license-HIP-994444?style=flat-square>
   </a>
   <a href=https://buymeacoffee.com/paysonwallach>
     <img src=https://img.shields.io/badge/donate-Buy%20me%20a%20coffe-yellow?style=flat-square>
@@ -47,7 +47,7 @@ pip install dist/venn-<version>-py3-none-any.whl
 
 ## How It Works
 
-`venn` takes advantage of Python's [.pth file convention](https://docs.python.org/2/library/site.html). It creates (and manipulates) a special file, `_venn.pth`, in the `site-packages` directory of your current virtualenv.
+`venn` takes advantage of Python's [.pth file convention](https://docs.python.org/3/library/site.html). It creates (and manipulates) a special file, `_venn.pth`, in the `site-packages` directory of your current virtualenv.
 
 ## Walkthrough
 
@@ -182,7 +182,14 @@ Open the active virtualenv's `_venn.pth` file in your default editor. You probab
 venn edit
 ```
 
-## Todos
+## Contributing
 
-- Add tests.
-- Test on wider variety of systems and virtualenv(wrapper) versions.
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## Code of Conduct
+
+By participating in this project, you agree to abide by the terms of the [Code of Conduct](https://github.com/paysonwallach/venn/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+[Venn](https://github.com/paysonwallach/venn) is licensed under the [Hippocratic License](https://github.com/paysonwallach/venn/blob/master/LICENSE).
