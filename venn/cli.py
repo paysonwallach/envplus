@@ -41,20 +41,9 @@ import os
 import cleo
 
 import venn.commands
+import venn.exceptions
 import venn.pathfile
 import venn.utils
-
-if "VIRTUAL_ENV" not in os.environ:
-    console = cleo.io.ConsoleIO()
-    text = (
-        "$VIRTUAL_ENV missing. It seems you're not currently in an active "
-        "virtual environment."
-    )
-    styled_text = "<{0}>{1}</{0}>".format("error", text)
-
-    console.error_line(styled_text)
-
-    exit(1)
 
 
 def get_pathfile_path(pathfile_name="_venn.pth"):
@@ -66,7 +55,22 @@ def get_pathfile_path(pathfile_name="_venn.pth"):
 
 def main():
     app = cleo.Application("venn", "0.2.0", complete=True)
+
+    if "VIRTUAL_ENV" not in os.environ:
+        message = (
+            "$VIRTUAL_ENV missing. It seems that you're not currently in an "
+            "active virtual environment."
+        )
+
+        app.render_exception(
+            venn.exceptions.VennException(message),
+            cleo.outputs.console_output.ConsoleOutput()
+        )
+
+        exit(1)
+
     pf = venn.pathfile.PathFile(get_pathfile_path())
+
     for _, name, _ in pkgutil.walk_packages(venn.commands.__path__):
             full_name = '.'.join([venn.commands.__name__, name])
             module = importlib.import_module(full_name)
