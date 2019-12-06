@@ -8,15 +8,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.4"
-cleo = "^0.7.5"
+cleo = "=0.6.8"
 env = { git = "https://github.com/paysonwallach/env.git", tag = "0.1.2" }
 virtualenvwrapper = "^4.8"
 
 [tool.poetry.dev-dependencies]
 
+[tool.poetry.scripts]
+venn = "venn.cli:main"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
-[tool.poetry.scripts]
-venn = "venn.cli:main"
