@@ -30,6 +30,5 @@ class RunCommand(cleo.Command):
         command = self.argument("command")
 
         common.run_in_env(
-            self.pf,
-            [os.environ["SHELL"], "-c", "-i", " ".join(command)]
+            self.pf, [os.environ["SHELL"], "-c", "-i", " ".join(command)]
         )

@@ -64,7 +64,7 @@ def main():
 
         app.render_exception(
             venn.exceptions.VennException(message),
-            cleo.outputs.console_output.ConsoleOutput()
+            cleo.outputs.console_output.ConsoleOutput(),
         )
 
         exit(1)
@@ -72,12 +72,12 @@ def main():
     pf = venn.pathfile.PathFile(get_pathfile_path())
 
     for _, name, _ in pkgutil.walk_packages(venn.commands.__path__):
-            full_name = '.'.join([venn.commands.__name__, name])
-            module = importlib.import_module(full_name)
+        full_name = ".".join([venn.commands.__name__, name])
+        module = importlib.import_module(full_name)
 
-            for name, member in inspect.getmembers(module, inspect.isclass):
-                if issubclass(member, cleo.Command):
-                    app.add(member(pf))
+        for name, member in inspect.getmembers(module, inspect.isclass):
+            if issubclass(member, cleo.Command):
+                app.add(member(pf))
 
     app.run()
 

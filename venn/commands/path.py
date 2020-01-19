@@ -9,6 +9,7 @@
 
 import cleo
 
+
 class PathCommand(cleo.Command):
     """
     Print the $PATH of the active virtual environment

@@ -43,7 +43,7 @@ def get_site_packages_dir(envname):
         envname,
         "lib",
         "*",
-        "site-packages"
+        "site-packages",
     ]
     joined = os.path.join(*sections)
     matching = glob(joined)

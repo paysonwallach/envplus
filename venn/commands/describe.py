@@ -9,6 +9,7 @@
 
 import cleo
 
+
 class DescribeCommand(cleo.Command):
     """
     Describe the active virtual environment

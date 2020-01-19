@@ -65,9 +65,9 @@ class PathFile(object):
             with open(self.filepath) as f:
                 raw = f.read()
 
-        lines = [x.strip()
-                 for x in re.split(linebreak_pattern, raw)
-                 if x.strip()]
+        lines = [
+            x.strip() for x in re.split(linebreak_pattern, raw) if x.strip()
+        ]
         env_list = [Env.from_line(line) for line in lines]
         env_names = [env.name for env in env_list]
         envs = OrderedDict(zip(env_names, env_list))
@@ -115,12 +115,10 @@ class PathFile(object):
             f.write(content)
 
     def ls(self):
-        return [key for key, env in self.envs.items()
-                if not env.paused]
+        return [key for key, env in self.envs.items() if not env.paused]
 
     def ls_paused(self):
-        return [key for key, env in self.envs.items()
-                if env.paused]
+        return [key for key, env in self.envs.items() if env.paused]
 
     def get_binpaths(self):
         workon = os.environ["WORKON_HOME"]

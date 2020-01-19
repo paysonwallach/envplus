@@ -9,6 +9,7 @@
 
 import cleo
 
+
 class RemoveCommand(cleo.Command):
     """
     Remove environments from the active virtual environment

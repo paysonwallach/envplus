@@ -26,7 +26,4 @@ class EditCommand(cleo.Command):
         self.pf = pf
 
     def handle(self):
-        common.run_in_env(
-            self.pf,
-            [os.environ["EDITOR"], self.pf.filepath]
-        )
+        common.run_in_env(self.pf, [os.environ["EDITOR"], self.pf.filepath])

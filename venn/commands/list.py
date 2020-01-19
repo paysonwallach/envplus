@@ -9,6 +9,7 @@
 
 import cleo
 
+
 class ListCommand(cleo.Command):
     """
     List virtual environments
@@ -26,6 +27,7 @@ class ListCommand(cleo.Command):
         active = set(self.pf.ls())
         paused = set(self.pf.ls_paused())
 
-        for environment in (paused if self.option("paused") else active) or \
-                ((paused or active) if self.option("all") else set()):
+        for environment in (paused if self.option("paused") else active) or (
+            (paused or active) if self.option("all") else set()
+        ):
             self.line(environment + "\n")

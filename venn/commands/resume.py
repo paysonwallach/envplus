@@ -9,6 +9,7 @@
 
 import cleo
 
+
 class ResumeCommand(cleo.Command):
     """
     Add temporarily-removed environments back to the active virtual environment
@@ -24,8 +25,10 @@ class ResumeCommand(cleo.Command):
     def handle(self):
         environments = self.argument("environments")
 
-        for environment in [environment if len(environments)
-                else self.pf.ls_paused() for environment in environments]:
+        for environment in [
+            environment if len(environments) else self.pf.ls_paused()
+            for environment in environments
+        ]:
             self.pf.resume_env(environment)
 
         self.pf.save()
