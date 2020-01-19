@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "venn"
-version = "0.1.0"
-description = "Work in multiple virtual environments simultaneously with ease."
+version = "0.2.0"
+description = "Mix and match virtual environments."
 authors = ["Payson Wallach <paysonwallach@icloud.com>"]
-license = "MIT"
+license = "HIP"
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -14,6 +14,12 @@ virtualenvwrapper = "^4.8"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
+
+[tool.poetry.scripts]
+venn = "venn.cli:main"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
 [tool.black]
 line-length = 79
@@ -32,10 +38,3 @@ exclude = '''
   | dist
 )/
 '''
-
-[tool.poetry.scripts]
-venn = "venn.cli:main"
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
-
