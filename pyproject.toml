@@ -7,12 +7,31 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.4"
+python = "^3.6"
 cleo = "=0.6.8"
 env = { git = "https://github.com/paysonwallach/env.git", tag = "0.1.2" }
 virtualenvwrapper = "^4.8"
 
 [tool.poetry.dev-dependencies]
+black = "^19.10b0"
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
 
 [tool.poetry.scripts]
 venn = "venn.cli:main"
