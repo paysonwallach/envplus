@@ -40,6 +40,7 @@ import os
 
 import cleo
 
+import venn.__version__
 import venn.commands
 import venn.exceptions
 import venn.pathfile
@@ -54,7 +55,7 @@ def get_pathfile_path(pathfile_name="_venn.pth"):
 
 
 def main():
-    app = cleo.Application("venn", "0.2.0", complete=True)
+    app = cleo.Application("venn", venn.__version__, complete=True)
 
     if "VIRTUAL_ENV" not in os.environ:
         message = (
