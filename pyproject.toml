@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-cleo = "=0.6.8"
+cleo = "^0.7.6"
 env = { git = "https://github.com/paysonwallach/env.git", tag = "0.1.2" }
 virtualenvwrapper = "^4.8"
 
