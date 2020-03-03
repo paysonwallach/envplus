@@ -12,3 +12,9 @@ class VennException(Exception):
     """Base exception class."""
 
     pass
+
+
+class NoVirtualEnvironment(VennException):
+    """No virtual environment found."""
+
+    pass
