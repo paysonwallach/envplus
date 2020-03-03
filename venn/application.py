@@ -40,48 +40,27 @@ import os
 
 import cleo
 
-import venn.__version__
+import venn.command
 import venn.commands
 import venn.exceptions
 import venn.pathfile
 import venn.utils
 
-
-def get_pathfile_path(pathfile_name="_venn.pth"):
-    sp_dir = venn.utils.get_site_packages_dir(os.environ["VIRTUAL_ENV"])
-    pathfile_path = os.path.join(sp_dir, pathfile_name)
-
-    return pathfile_path
+from venn import __version__
 
 
-def main():
-    app = cleo.Application("venn", venn.__version__, complete=True)
+class Application(cleo.Application):
+    def __init__(self):
+        super(Application, self).__init__("venn", __version__, complete=True)
 
-    if "VIRTUAL_ENV" not in os.environ:
-        message = (
-            "$VIRTUAL_ENV missing. It seems that you're not currently in an "
-            "active virtual environment."
-        )
+        for _, name, _ in pkgutil.walk_packages(venn.commands.__path__):
+            full_name = ".".join([venn.commands.__name__, name])
+            module = importlib.import_module(full_name)
 
-        app.render_exception(
-            venn.exceptions.VennException(message),
-            cleo.outputs.console_output.ConsoleOutput(),
-        )
-
-        exit(1)
-
-    pf = venn.pathfile.PathFile(get_pathfile_path())
-
-    for _, name, _ in pkgutil.walk_packages(venn.commands.__path__):
-        full_name = ".".join([venn.commands.__name__, name])
-        module = importlib.import_module(full_name)
-
-        for name, member in inspect.getmembers(module, inspect.isclass):
-            if issubclass(member, cleo.Command):
-                app.add(member(pf))
-
-    app.run()
+            for name, member in inspect.getmembers(module, inspect.isclass):
+                if issubclass(member, venn.command.BaseCommand):
+                    self.add(member())
 
 
 if __name__ == "__main__":
-    main()
+    Application().run()
