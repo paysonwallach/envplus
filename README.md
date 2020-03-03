@@ -4,7 +4,7 @@
   <br>
   <p>Mix and match virtual environments</p>
   <a href=https://github.com/paysonwallach/venn/release/latest>
-    <img src=https://img.shields.io/badge/release-v0.1.0-blue?style=flat-square>
+    <img src=https://img.shields.io/badge/release-v0.4.0-blue?style=flat-square>
   </a>
   <a href=https://github.com/paysonwallach/venn/blob/master/LICENSE>
     <img src=https://img.shields.io/badge/license-HIP-994444?style=flat-square>

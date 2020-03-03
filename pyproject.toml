@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "venn"
-version = "0.3.0"
+version = "0.4.0"
 description = "Mix and match virtual environments."
 authors = ["Payson Wallach <paysonwallach@icloud.com>"]
 license = "HIP"
