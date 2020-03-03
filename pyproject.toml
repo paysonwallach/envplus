@@ -17,7 +17,7 @@ black = "^19.10b0"
 pre-commit = "^2.1.1"
 
 [tool.poetry.scripts]
-venn = "venn.cli:main"
+venn = "venn:main"
 
 [tool.black]
 line-length = 79
