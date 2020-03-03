@@ -9,8 +9,8 @@
 
 import os
 
+import venn.env
 
-from . import common
 from venn import command
 
 
@@ -28,7 +28,6 @@ class RunCommand(command.BaseCommand):
     def handle(self):
         super().handle()
 
-        common.run_in_env(
-            self.pf, [os.environ["SHELL"], "-c", "-i", " ".join(command)]
-        )
         cmd = self.argument("command")
+
+        venn.env.execute(self.pf, [os.environ["SHELL"], "-c", "-i", " ".join(cmd)])

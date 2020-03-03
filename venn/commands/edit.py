@@ -11,7 +11,7 @@ import os
 
 import cleo
 
-from . import common
+import venn.env
 
 from venn import command
 
@@ -29,3 +29,4 @@ class EditCommand(command.BaseCommand):
     def handle(self):
         super().handle()
 
+        venn.env.execute(self.pf, [os.environ["EDITOR"], self.pf.filepath])
