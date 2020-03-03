@@ -7,19 +7,20 @@
 # (https://firstdonoharm.dev/version/1/1/license.html)
 #
 
-import cleo
+from venn import command
 
 
-class PathCommand(cleo.Command):
+class PathCommand(command.BaseCommand):
     """
     Print the $PATH of the active virtual environment
 
     path
     """
 
-    def __init__(self, pf, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.pf = pf
 
     def handle(self):
+        super().handle()
+
         self.line(self.pf.filepath)

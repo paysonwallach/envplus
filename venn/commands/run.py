@@ -9,12 +9,12 @@
 
 import os
 
-import cleo
 
 from . import common
+from venn import command
 
 
-class RunCommand(cleo.Command):
+class RunCommand(command.BaseCommand):
     """
     Run a give command in the active virtual environment
 
@@ -22,13 +22,13 @@ class RunCommand(cleo.Command):
         {command* : Command to run in the currently-active virtual environment, with optional arguments}
     """
 
-    def __init__(self, pf, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.pf = pf
 
     def handle(self):
-        command = self.argument("command")
+        super().handle()
 
         common.run_in_env(
             self.pf, [os.environ["SHELL"], "-c", "-i", " ".join(command)]
         )
+        cmd = self.argument("command")

@@ -7,10 +7,10 @@
 # (https://firstdonoharm.dev/version/1/1/license.html)
 #
 
-import cleo
+from venn import command
 
 
-class RemoveCommand(cleo.Command):
+class RemoveCommand(command.BaseCommand):
     """
     Remove environments from the active virtual environment
 
@@ -18,11 +18,12 @@ class RemoveCommand(cleo.Command):
         {environments* : Virtual environments to remove from the currently-active environment}
     """
 
-    def __init__(self, pf, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.pf = pf
 
     def handle(self):
+        super().handle()
+
         environments = self.argument("environments")
 
         for environment in environments:

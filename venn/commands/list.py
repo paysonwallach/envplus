@@ -7,10 +7,10 @@
 # (https://firstdonoharm.dev/version/1/1/license.html)
 #
 
-import cleo
+from venn import command
 
 
-class ListCommand(cleo.Command):
+class ListCommand(command.BaseCommand):
     """
     List virtual environments
 
@@ -19,11 +19,12 @@ class ListCommand(cleo.Command):
         {--p|paused : List only virtual environments paused in the currently-active environment}
     """
 
-    def __init__(self, pf, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.pf = pf
 
     def handle(self):
+        super().handle()
+
         active = set(self.pf.ls())
         paused = set(self.pf.ls_paused())
 

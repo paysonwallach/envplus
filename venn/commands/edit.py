@@ -13,17 +13,19 @@ import cleo
 
 from . import common
 
+from venn import command
 
-class EditCommand(cleo.Command):
+
+class EditCommand(command.BaseCommand):
     """
     Edit the active virtual environment
 
     edit
     """
 
-    def __init__(self, pf, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.pf = pf
 
     def handle(self):
-        common.run_in_env(self.pf, [os.environ["EDITOR"], self.pf.filepath])
+        super().handle()
+
