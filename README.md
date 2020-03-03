@@ -49,16 +49,16 @@ From the root of the repository, install the necessary dependencies via `poetry`
 poetry install
 ```
 
-Then, build the wheel:
+Then build the project:
 
 ```sh
 poetry build
 ```
 
-Finally, outside of your virtual environment, install the wheel using `pip`:
+Finally, outside of your virtual environment, install using `pip`:
 
 ```sh
-pip install dist/venn-<version>-py3-none-any.whl
+pip install dist/venn-<version>.tar.gz
 ```
 
 ## How It Works
@@ -124,9 +124,9 @@ venn remove scraping dbstorage
 "Pauses" previously added virtualenvs, so that they remain in `_venn.pth` (as commented lines) but do not effect the current virtualenv. If virtualenv names are provided, only those are paused. Otherwise, all previously added virtualenvs are paused.
 
 ```sh
-# To pause all
+# to pause all
 venn pause
-# To pause just one
+# to pause just one
 venn pause dbstorage
 ```
 
@@ -137,9 +137,9 @@ venn pause dbstorage
 Un-pauses previously added virtualenvs. If virtualenv names are provided, only those are resumed. Otherwise, all previously added virtualenvs are resumed.
 
 ```sh
-# To resume all
+# to resume all
 venn resume
-# To resume just one
+# to resume just one
 venn resume dbstorage
 ```
 
@@ -156,15 +156,15 @@ List added virtualenvs. By default, lists only *non-paused* additions. `-p` will
 Temporarily adds your virtualenvs' `bin`-paths to your current `PATH` before running `command`. Lets you use other virtualenvs' command-line programs.
 
 ```sh
-# Create a dummy virtualenv with csvkit
+# create a dummy virtualenv with csvkit
 mkvirtualenv csvtest
 pip install csvkit
 
-# Create newenv and add csvtest
+# create newenv and add csvtest
 mkvirtualenv newenv
 venn add csvtest
 
-# While in newenv, run csvkit's csvcut command-line utility
+# while in newenv, run csvkit's csvcut command-line utility
 echo "a,b,c" | venn run csvcut -c 2
 ```
 
