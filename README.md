@@ -39,6 +39,21 @@ Then install via `brew`:
 brew install venn
 ```
 
+### Ubuntu
+
+`venn` is available for Ubuntu and related distros via a PPA.
+
+```sh
+# add PPA
+sudo add-apt-repository -u ppa:paysonwallach/venn
+# install
+sudo apt install venn
+```
+
+### Arch
+
+`venn` is available in the [AUR](https://aur.archlinux.org/packages/venn/).
+
 ### From source using [Poetry](https://github.com/sdispater/poetry)
 
 __Note:__ It is recommended to build `venn` in a virtual environment due to dependency version requirements.
